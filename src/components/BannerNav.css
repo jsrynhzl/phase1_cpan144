@@ -1,0 +1,72 @@
+/* ---------------------------------------- LAYOUT FORMATTING ---------------------------------------- */
+h1 {
+    margin: 0px;
+}
+
+/* ---------------------------------------- BANNER ---------------------------------------- */
+header {
+    background-image: url(./images/banner.jpg);
+    /* Resource: https: //creativemarket.com/Nadia-nb/2358458-Baking-background-top-view-featuring-baking-baking-background-and-cooking */
+    background-size: 100%;
+    background-position: center;
+    margin: 0;
+    padding: 50px;
+}
+
+h1 {
+    font-family: "Century Gothic", serif;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 10px;
+    text-shadow: 8px 8px 10px #ffebb7;
+    margin: 0;
+}
+
+h1 a {
+    color: #e67a7a;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/* ---------------------------------------- NAVIGATION BAR ---------------------------------------- */
+
+#topnav {
+    background-color: #fff4e1;
+    border-bottom: 10px solid #9ddcdc;
+    text-align: center;
+    box-sizing: border-box;
+    height: 50px;
+}
+
+#topnav ul li {
+    display: inline;
+    font-family: "Trebuchet MS", sans-serif;
+    letter-spacing: 3px;
+    color: #e67a7a;
+    text-shadow: 8px 8px 10px #ffebb7;
+}
+
+#topnav a:hover {
+    color: black;
+    border-bottom: 3px solid #e67a7a;
+}
+
+
+/* ---------------------------------------- FOR BOTH TOP NAVIGATION BAR & FOOTER NAVIGATION ----------------------------------------*/
+
+nav a {
+    color: #e67a7a;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 40px 10px 40px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+nav ul {
+    flex-direction: column;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    width: 100%;
+}
