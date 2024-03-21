@@ -16,10 +16,10 @@ const BannerNav = () => {
             <header>
                 <h1>
                     <Link to="/">
-                        Bare
+                        Bare&nbsp;
                         <img src={icon} width="30" height="30"
                             alt="A logo for Bare Bakes, a minimalist square-sliced cake"/>
-                        Bakes
+                        &nbsp;Bakes
                     </Link>
                 </h1>
             </header>
