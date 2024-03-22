@@ -1,9 +1,36 @@
+import { Link } from 'react-router-dom';
 import './Footer.css'
+import { Container, Row, Col, Stack, Image, Nav, NavLink } from "react-bootstrap"
 
 const Footer = () => {
     return(
         <div>
             <footer>
+                <Container fluid>
+                    <Row className="bg-primary text-white p-4">
+                        <Col></Col>
+                        <Col>
+                            <Nav className="flex-column fs-5">
+                                Quick links
+                                <NavLink href="/" className="text-white">Home</NavLink>
+                                <NavLink href="/recipes" className="text-white">Recipes</NavLink>
+                                <NavLink href="/subscribe" className="text-white">Subscribe</NavLink>
+                            </Nav>
+                        </Col>
+                    </Row>
+                </Container>
+            </footer>
+            {/* <footer>
+                <div class="footerpane">
+                    <h3>Quick links</h3>
+                    <nav id="footernav">
+                        <ul>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/recipes">Recipes</Link></li>
+                            <li><Link to="/subscribe">Subscribe</Link></li>
+                        </ul>
+                    </nav>
+                </div>
                 <div class="footerpane">
                     <h3>Operating hours</h3>
                     <ul>
@@ -12,27 +39,8 @@ const Footer = () => {
                         <li>Sunday:&nbsp;&nbsp;&nbsp;11am - 7pm</li>
                     </ul>
                 </div>
-                <div class="footerpane">
-                    <h3>Locations</h3>
-                    <ul>
-                        <li>Vaughan Mills</li>
-                        <li>Kensington Market</li>
-                        <li>Niagara-on-the-Lake</li>
-                    </ul>
-                </div>
-                <div class="footerpane">
-                    <h3>Quick links</h3>
-                    <nav id="footernav">
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="menu.html">Menu</a></li>
-                            <li><a href="order.html">Order</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
                 <p>Copyright &copy; TszWai and Jesse</p>
-            </footer>
+            </footer> */}
         </div>
     );
 }

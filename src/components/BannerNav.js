@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-
 import './BannerNav.css'
 import icon from './images/title-icon.png'
 

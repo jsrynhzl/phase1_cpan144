@@ -4,14 +4,14 @@ import Footer from '../components/Footer';
 
 const Recipes = () => {
     const [id, setId] = useState();
-    const [name, setName] = useState("");
     const [photo, setPhoto] = useState("");
-
+    const [name, setName] = useState("");
+    const [sourceUrl, setSourceUrl] = useState("");
     const [prepTime, setPrepTime] = useState("");
     const [servings, setServings] = useState();
-    const [diets, setDiets] = useState([""]);
-    const [sourceUrl, setSourceUrl] = useState("");
-
+    const [cuisine, setCuisine] = useState([]);
+    const [diets, setDiets] = useState([]);
+    
     // TODO: measurements, ingredients
 
     const getDessert = () => {
@@ -26,24 +26,30 @@ const Recipes = () => {
             .then(response => {
                 return response.json();
             })
-            .then(json => UpdateUI(json))
+            .then(json => updateUI(json))
             .catch(err => alert(err))
     }
 
     // Spoonacular
-    const UpdateUI = (dessertsJson) => {
-        // Preview recipe: Photo, name, source
-        let id = dessertsJson.results[0].id;
-        let photo = dessertsJson.results[0].image;
-        let name = dessertsJson.results[0].title;
-        let sourceUrl = dessertsJson.results[0].sourceUrl;
+    const updateUI = (dessertJson) => {
+        previewRecipe(dessertJson)
+        // showIngredients(dessertJson)
+        // showProcedure(dessertJson)
+    }
+
+    const previewRecipe = (dessertJson) => {
+        // Preview recipe: Photo, name, source url, ID (hidden)
+        let id = dessertJson.results[0].id;
+        let photo = dessertJson.results[0].image;
+        let name = dessertJson.results[0].title;
+        let sourceUrl = dessertJson.results[0].sourceUrl;
         setId(id)
         setPhoto(photo)
         setName(name)
         setSourceUrl(sourceUrl)
 
         // Preview recipe: Preparation time
-        let prepInMins = dessertsJson.results[0].readyInMinutes;
+        let prepInMins = dessertJson.results[0].readyInMinutes;
         var hours = Math.floor(prepInMins / 60)
         var minutes = prepInMins % 60
         if (hours === 0) {
@@ -52,13 +58,18 @@ const Recipes = () => {
             setPrepTime(hours + " hour/s and " + minutes + " minute/s")
         }
 
-        // Preview recipe: Number of servings and Types of diets
-        let servings = dessertsJson.results[0].servings;
+        // Preview recipe: Number of servings, Cuisines, and Types of diets
+        let servings = dessertJson.results[0].servings;
+        let cuisineArray = [];
+        dessertJson.results[0].cuisines.forEach((cuisine) => {
+            cuisineArray.push(cuisine)
+        });
         let diets = [];
-        dessertsJson.results[0].diets.forEach((diet) => {
+        dessertJson.results[0].diets.forEach((diet) => {
             diets.push(diet)
         });
         setServings(parseInt(servings))
+        setCuisine(cuisineArray)
         setDiets(diets)
     }
 
@@ -67,19 +78,21 @@ const Recipes = () => {
             <BannerNav/>
             <h4>Dessert Recipe Generator</h4>
             <button type="button" onClick={getDessert}>Get a random dessert</button>
-            <br /><br />
+            <br />
             <img src={photo} alt={name} />
             <br />
             {name && <b>{name} {id}</b>}
             <br />
 
             {sourceUrl && <span style={{ color: 'blue' }}><a href={sourceUrl}>Link to source</a></span>}
-            <br /><br />
+            <br />
             {prepTime && <span>Preparation time: {prepTime}</span>}
-            <br /><br />
+            <br />
             {servings && <span>Serves: {servings} people</span>}
-            <br /><br />
-            {servings && <span>Diets: {diets.join(", ")}</span>}
+            <br />
+            {cuisine.length > 0 && <span>Cuisine: {cuisine.join(" / ")}</span>}
+            <br />
+            {diets.length > 0 && <span>Diet: {diets.join(", ")}</span>}
             <br />
             <Footer/>
         </div>
