@@ -1,5 +1,6 @@
 import { useState } from "react"
-
+import BannerNav from "../components/BannerNav"
+import Footer from "../components/Footer"
 
 const Subscribe = () => {
 
@@ -35,6 +36,7 @@ const Subscribe = () => {
 
     return (
         <div>
+            <BannerNav/>
             <h2>Subscribe</h2>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -127,6 +129,7 @@ const Subscribe = () => {
 
                 <button type="submit">Submit</button>
             </form>
+            <Footer/>
         </div>
     );
 }

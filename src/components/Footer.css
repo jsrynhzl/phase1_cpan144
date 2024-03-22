@@ -16,6 +16,20 @@ nav ul {
     width: 100%;
 }
 
+li {
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+p {
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+h2,
+h3 {
+    font-family: "Garamond", sans-serif;
+    color: #e67a7a;
+}
+
 /* -------------------- FOOTER STYLES ---------------------------------------- */
 
 footer {
@@ -26,9 +40,12 @@ footer {
     justify-content: center;
     align-items: center;
     background-color: #ffebb7;
+
+    /* width: 80%; */
+    margin: auto;
 }
 
-footer>div {
+footer > div {
     flex: auto auto auto;
     padding: 0 100px;
 }
@@ -45,7 +62,7 @@ footer ul {
     font-weight: 600;
 }
 
-footer>p {
+footer > p {
     flex-basis: 100%;
     text-align: center;
 }

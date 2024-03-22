@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import BannerNav from '../components/BannerNav';
+import Footer from '../components/Footer';
 
 const Recipes = () => {
     const [id, setId] = useState();
@@ -62,6 +64,7 @@ const Recipes = () => {
 
     return (
         <div>
+            <BannerNav/>
             <h4>Dessert Recipe Generator</h4>
             <button type="button" onClick={getDessert}>Get a random dessert</button>
             <br /><br />
@@ -78,6 +81,7 @@ const Recipes = () => {
             <br /><br />
             {servings && <span>Diets: {diets.join(", ")}</span>}
             <br />
+            <Footer/>
         </div>
     );
 }
