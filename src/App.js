@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './screens/Home';
 import Recipes from './screens/Recipes';
 import Subscribe from './screens/Subscribe';

@@ -1,46 +1,44 @@
-import { Link } from 'react-router-dom';
 import './Footer.css'
-import { Container, Row, Col, Stack, Image, Nav, NavLink } from "react-bootstrap"
+import icon from './images/title-icon.png'
+import { Link } from "react-router-dom"
+import { Container, Row, Col, Image, Nav, NavLink } from "react-bootstrap"
+import { SocialIcon } from 'react-social-icons/component'
+import 'react-social-icons/instagram'
+import 'react-social-icons/youtube'
+import 'react-social-icons/x'
 
 const Footer = () => {
     return(
         <div>
-            <footer>
-                <Container fluid>
-                    <Row className="bg-primary text-white p-4">
-                        <Col></Col>
+            <footer className=" bg-light">
+                <Container>
+                    <Row className="p-4">
                         <Col>
-                            <Nav className="flex-column fs-5">
-                                Quick links
-                                <NavLink href="/" className="text-white">Home</NavLink>
-                                <NavLink href="/recipes" className="text-white">Recipes</NavLink>
-                                <NavLink href="/subscribe" className="text-white">Subscribe</NavLink>
+                            <span>
+                                <h4>BARE <Image src={icon} alt="A logo of Bare Bakes" width="30" height="30" rounded /> BAKES</h4>
+                            </span>
+                            <p>Some tagline</p>
+                        </Col>
+                        <Col>
+                            <h5>Quick links</h5>
+                            <Nav className="flex-column">
+                                <Link to="/">Home</Link>
+                                <Link to="/recipes">Recipes</Link>
+                                <Link to="/subscribe">Subscribe</Link>
                             </Nav>
+                        </Col>
+                        <Col>
+                            <h5>Follow us</h5>
+                            <SocialIcon url="https://instagram.com" />
+                            <SocialIcon url="https://youtube.com" />
+                            <SocialIcon url="https://x.com" />
+                            <br /><br />
+                            <p>Copyright &copy; TszWai and Jesse</p>
+                            <p>CPAN 144 - Section 8288 / 0NA</p>
                         </Col>
                     </Row>
                 </Container>
             </footer>
-            {/* <footer>
-                <div class="footerpane">
-                    <h3>Quick links</h3>
-                    <nav id="footernav">
-                        <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/recipes">Recipes</Link></li>
-                            <li><Link to="/subscribe">Subscribe</Link></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="footerpane">
-                    <h3>Operating hours</h3>
-                    <ul>
-                        <li>Monday - Friday: 10am - 7pm</li>
-                        <li>Saturday:&nbsp;10am - 5pm</li>
-                        <li>Sunday:&nbsp;&nbsp;&nbsp;11am - 7pm</li>
-                    </ul>
-                </div>
-                <p>Copyright &copy; TszWai and Jesse</p>
-            </footer> */}
         </div>
     );
 }
