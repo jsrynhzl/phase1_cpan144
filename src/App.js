@@ -4,7 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './screens/Home';
 import Recipes from './screens/Recipes';
 import Subscribe from './screens/Subscribe';
+import SubscribeCompleted from './screens/SubscribeCompleted';
 import NotFound from './screens/NotFound';
+
 
 const App = () => {
   return (
@@ -14,6 +16,7 @@ const App = () => {
           <Route path="/" element={<Home/>} />
           <Route path="/recipes" element={<Recipes/>} />
           <Route path="/subscribe" element={<Subscribe/>} />
+          <Route path="/subscribecompleted/:name" element={<SubscribeCompleted/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

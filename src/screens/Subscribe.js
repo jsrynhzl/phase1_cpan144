@@ -1,9 +1,12 @@
-import { useState } from "react"
-import BannerNav from "../components/BannerNav"
-import Footer from "../components/Footer"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import BannerNav from "../components/BannerNav";
+import Footer from "../components/Footer";
 import './Subscribe.css';
 
 const Subscribe = () => {
+
+    const navigate = useNavigate();
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
@@ -15,23 +18,31 @@ const Subscribe = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        let hasError = false;
 
         if (name.trim()) {
             setNameError("")
         } else {
             setNameError("Name cannot be empty")
+            hasError = true;
         }
 
         if (email.trim()) {
             setEmailError("")
         } else {
             setEmailError("Email cannot be empty")
+            hasError = true;
         }
 
         if (preferences.length === 0) {
             setPreferencesError("Please select at least one preference");
+            hasError = true;
         } else {
             setPreferencesError("")
+        }
+
+        if (!hasError) {
+            navigate(`/SubscribeCompleted/${name}`);
         }
     }
 
@@ -73,6 +84,7 @@ const Subscribe = () => {
 
                 <div>
                     <label className="preferenceLabel">Select your preferences  : </label>
+                    <br/>
                     <label>
                     <input
                         type="checkbox"
@@ -125,7 +137,7 @@ const Subscribe = () => {
                     />
                     Pastries
                     </label> 
-
+                    <br />
                     {preferencesError && <span style={{ color: 'red' }}>{preferencesError}</span>}
                 </div>
 
@@ -136,4 +148,4 @@ const Subscribe = () => {
     );
 }
 
-export default Subscribe
+export default Subscribe;
