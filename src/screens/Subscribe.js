@@ -1,6 +1,7 @@
 import { useState } from "react"
 import BannerNav from "../components/BannerNav"
 import Footer from "../components/Footer"
+import './Subscribe.css';
 
 const Subscribe = () => {
 
@@ -35,11 +36,12 @@ const Subscribe = () => {
     }
 
     return (
-        <div>
+        <div >
             <BannerNav/>
-            <h2>Subscribe</h2>
-            <form onSubmit={handleSubmit}>
+            
+            <form onSubmit={handleSubmit} className="subscribe-container">
                 <div>
+                <h2>Subscribe</h2>
                     <label>Name : </label>
                     <input
                         type="text"
@@ -70,7 +72,7 @@ const Subscribe = () => {
                 </div>
 
                 <div>
-                    <label>Select your preferences  : </label>
+                    <label className="preferenceLabel">Select your preferences  : </label>
                     <label>
                     <input
                         type="checkbox"
