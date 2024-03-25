@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import BannerNav from '../components/BannerNav';
 import Footer from '../components/Footer';
+// import Loading from '../components/Loading'; // TODO
+import RecipeDetails from '../components/RecipeDetails';
+
 import Button from 'react-bootstrap/Button';
+
 
 const Recipes = () => {
     const [id, setId] = useState();
@@ -12,11 +16,11 @@ const Recipes = () => {
     const [servings, setServings] = useState();
     const [cuisine, setCuisine] = useState([]);
     const [diets, setDiets] = useState([]);
-    
-    // TODO: measurements, ingredients
 
     const getDessert = () => {
-        var apiKey = "1086348ae7cb452d8af4701cf23fefce"
+        var acc1_key = "1086348ae7cb452d8af4701cf23fefce"
+        var acc2_key = "dd02296314b245d9b7c917379ed2aa5a"
+        var apiKey = acc2_key
         var type = "dessert"
         var searchUrl = ("https://api.spoonacular.com/recipes/complexSearch?apiKey="
             + apiKey
@@ -24,11 +28,11 @@ const Recipes = () => {
             + type
             + "&equipment=oven")
         fetch(searchUrl)
-            .then(response => {
-                return response.json();
-            })
-            .then(json => updateUI(json))
-            .catch(err => alert(err))
+        .then(response => {
+            return response.json();
+        })
+        .then(json => updateUI(json))
+        .catch(err => alert(err))
     }
 
     // Spoonacular
@@ -77,25 +81,28 @@ const Recipes = () => {
     return (
         <div>
             <BannerNav/>
-            <h2>Get a random recipe</h2>
+            <h4>Sweet selections await!</h4>
+            <h5>Explore our world of recipes ~</h5>
             <Button variant="primary" onClick={getDessert}>Discover a surprise dessert</Button>
-            {/* <button type="button" onClick={getDessert}>Get a random dessert</button> */}
-            <br /><br />
-            <img src={photo} alt={name} />
-            <br />
-            {name && <b>{name} {id}</b>}
-            <br />
+            <div>
+                <br /><br />
+                <img src={photo} alt={name} />
+                <br />
+                {name && <b>{name} {id}</b>}
+                <br />
 
-            {sourceUrl && <span style={{ color: 'blue' }}><a href={sourceUrl}>Link to source</a></span>}
-            <br />
-            {prepTime && <span>Preparation time: {prepTime}</span>}
-            <br />
-            {servings && <span>Serves: {servings} people</span>}
-            <br />
-            {cuisine.length > 0 && <span>Cuisine: {cuisine.join(" / ")}</span>}
-            <br />
-            {diets.length > 0 && <span>Diet: {diets.join(", ")}</span>}
-            <br />
+                {sourceUrl && <span style={{ color: 'blue' }}><a href={sourceUrl}>Link to source</a></span>}
+                <br />
+                {prepTime && <span>Preparation time: {prepTime}</span>}
+                <br />
+                {servings && <span>Serves: {servings} people</span>}
+                <br />
+                {cuisine.length > 0 && <span>Cuisine: {cuisine.join(" / ")}</span>}
+                <br />
+                {diets.length > 0 && <span>Diet: {diets.join(", ")}</span>}
+                <br />
+            </div>
+            <RecipeDetails />
             <Footer/>
         </div>
     );
