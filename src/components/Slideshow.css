@@ -1,5 +1,5 @@
 .carousel {
-    width: 70%;
+    width: 60%;
 }
 
 .carousel-item img {
@@ -11,7 +11,8 @@
 .slider-container{
     display: flex;
     justify-content: center;
-    height: 90vh;
+    /* height: 90vh; */
+    margin-bottom: 5%;
 }
 
 .carousel-caption {
