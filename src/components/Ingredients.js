@@ -1,19 +1,29 @@
 import Accordion from 'react-bootstrap/Accordion';
+import ListGroup from 'react-bootstrap/ListGroup';
 
-const Ingredients = () => {
+const Ingredients = (props) => {
+    let ingredientsArray = props.array
     return(
         <div>
-            <Accordion defaultActiveKey="0">
+            <Accordion>
                 <Accordion.Item eventKey="0">
                     <Accordion.Header><h3>Ingredients</h3></Accordion.Header>
                     <Accordion.Body>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
+                        <div>
+                            <ListGroup as="ul">
+                                {
+                                    ingredientsArray.map(ingredient => (
+                                        <ListGroup.Item as="li" >
+                                            <h5>{ingredient.amount.metric.value}&nbsp;
+                                            {ingredient.amount.metric.unit.toLowerCase()}&nbsp;
+                                            {ingredient.name}
+                                            </h5>
+                                        </ListGroup.Item>
+                                    ))
+                                    
+                                }
+                            </ListGroup>
+                        </div>
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>

@@ -17,7 +17,9 @@ const Footer = () => {
                             <span>
                                 <h4>BARE <Image src={icon} alt="A logo of Bare Bakes" width="30" height="30" rounded /> BAKES</h4>
                             </span>
-                            <p>Some tagline</p>
+                            <p>
+                                Elevate your dessert game and be challenged one delectable bake at a time, with our oven-inspired delights!
+                            </p>
                         </Col>
                         <Col>
                             <h5>Quick links</h5>

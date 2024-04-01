@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 const Procedure = () => {
     return (
         <div>
-            <Accordion defaultActiveKey="0">
+            <Accordion>
                 <Accordion.Item eventKey="0">
                     <Accordion.Header><h3>Procedure</h3></Accordion.Header>
                     <Accordion.Body>
