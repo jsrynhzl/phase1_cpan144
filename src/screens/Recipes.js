@@ -6,7 +6,6 @@ import RecipeDetails from '../components/RecipeDetails';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import Spinner from 'react-bootstrap/Spinner';
-import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -105,34 +104,34 @@ const Recipes = () => {
                             id &&
                             <div>
                                 <br />
-                                    <Card className="d-flex justify-content-center align-items-center vh-80">
-                                    <Container>
-                                        <Card.Header>
-                                            <Card.Title>{name && <h4>{name} {id}</h4>}</Card.Title>
-                                        </Card.Header>
-                                        <Row>
-                                            <Col fluid="md">
-                                                <Image src={photo} width="500" length="500" rounded />
-                                            </Col>
-                                            <Col fluid="md">
-                                                {sourceUrl && <span style={{ color: 'blue' }}><a href={sourceUrl}>Link to source</a></span>}
-                                                <br />
-                                                {prepTime && <span>Preparation time: {prepTime}</span>}
-                                                <br />
-                                                {servings && <span>Serves: {servings} people</span>}
-                                                {cuisine.length > 0 && <span>Cuisine: {cuisine.join(" / ")}</span>}
-                                                <br />
-                                                {diets.length > 0 && <span>Diet: {diets.join(", ")}</span>}
-                                            </Col>
-                                            <Col fluid="md">
-                                                <Card.Text>
-                                                    {summary && <div dangerouslySetInnerHTML={{ __html: summary }}></div>}
-                                                </Card.Text>
-                                            </Col>
-                                        </Row>
-                                    </Container>
-                                </Card>
-                                <br /><br />
+                                <Container className="bg-primary-subtle text-primary-emphasis">
+                                    <Row>
+                                        <Col fluid="md">
+                                            <br />
+                                            <Image src={photo} width="500" length="500" rounded />
+                                        </Col>
+                                        <Col fluid="md">
+                                            <br />
+                                            {name && <h4>{name}</h4>}
+                                            {id && <h4>{id}</h4>}
+                                            {sourceUrl && <span style={{ color: 'blue' }}><a href={sourceUrl}>Link to source</a></span>}
+                                            <br /><br />
+                                            {prepTime && <span>Preparation time: {prepTime}</span>}
+                                            <br /><br />
+                                            {servings && <span>Serves: {servings} people</span>}
+                                            <br /><br />
+                                            {cuisine.length > 0 && <span>Cuisine: {cuisine.join(" / ")}</span>}
+                                            <br /><br />
+                                            {diets.length > 0 && <span>Diet: {diets.join(", ")}</span>}
+                                        </Col>
+                                        <Col fluid="md">
+                                            <br/>
+                                            {summary && <div dangerouslySetInnerHTML={{ __html: summary }}></div>}
+                                        </Col>
+                                    </Row>
+                                    <br />
+                                </Container>
+                                <br />
                                 {id && <RecipeDetails id={id} />}
                             </div>
                         }

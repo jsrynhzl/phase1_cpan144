@@ -13,6 +13,7 @@ const RecipeDetails = (props) => {
     
     // Ingredients
     const [ingredients, setIngredients] = useState([]);
+    const [ingredientsPic, setIngredientsPic] = useState([]);
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -21,7 +22,6 @@ const RecipeDetails = (props) => {
     }, [])
 
     const getIngredients = () => {
-        console.log(`My recipe ID in RecipeDetails: ${props.id}`)
         var acc1_key = "1086348ae7cb452d8af4701cf23fefce"
         var acc2_key = "12f48c335d5a410494f64fead179ab30"
         var acc3_key = "dd02296314b245d9b7c917379ed2aa5a"
@@ -29,7 +29,6 @@ const RecipeDetails = (props) => {
         
         try {
             let apiURL = `https://api.spoonacular.com/recipes/${props.id}/ingredientWidget.json?apiKey=` + apiKey
-
             axios.get(apiURL)
             .then(response => {
                 console.log(`response from API : ${JSON.stringify(response.data)}`);
@@ -49,6 +48,16 @@ const RecipeDetails = (props) => {
             console.error(`Error while fetching data from API : ${error}`);
             setLoading(false)
         }
+
+        let ingredientPicURL = `https://api.spoonacular.com/recipes/${props.id}/ingredientWidget.png?apiKey=` + apiKey + `&measure=metric`
+        
+        fetch(ingredientPicURL)
+            .then(response => response.blob())
+            .then(blob => {
+                const url = URL.createObjectURL(blob);
+                setIngredientsPic(url);
+            })
+            .catch(error => console.error(error));
     }
 
     return(
@@ -61,10 +70,10 @@ const RecipeDetails = (props) => {
                 ) : (
                     <Container>
                         <Row>
-                            <Col lg={4}>
-                                <Ingredients array={ingredients} />
+                            <Col lg={5}>
+                                <Ingredients array={ingredients} widget={ingredientsPic}/>
                             </Col>
-                            <Col lg={8}>
+                            <Col lg={7}>
                                 <Procedure />
                             </Col>
                         </Row>
