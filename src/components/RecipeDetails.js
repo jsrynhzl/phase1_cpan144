@@ -11,13 +11,11 @@ import Procedure from './Procedure';
 
 const RecipeDetails = (props) => {
     
-    // Ingredients
     const [ingredients, setIngredients] = useState([]);
     const [ingredientsPic, setIngredientsPic] = useState([]);
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        console.log(`Fetch data from web service`);
         getIngredients();
     }, [])
 
@@ -31,21 +29,17 @@ const RecipeDetails = (props) => {
             let apiURL = `https://api.spoonacular.com/recipes/${props.id}/ingredientWidget.json?apiKey=` + apiKey
             axios.get(apiURL)
             .then(response => {
-                console.log(`response from API : ${JSON.stringify(response.data)}`);
                 if (response.data !== undefined) {
                     setIngredients(response.data.ingredients)
                     setLoading(false)
                 } else {
-                    console.log(`No data provided from API`);
                     setLoading(false)
                 }
             })
             .catch(err => {
-                console.error(`Cannot access the data from API : ${err}`);
                 setLoading(false)
             })
         } catch (error) {
-            console.error(`Error while fetching data from API : ${error}`);
             setLoading(false)
         }
 
@@ -57,7 +51,7 @@ const RecipeDetails = (props) => {
                 const url = URL.createObjectURL(blob);
                 setIngredientsPic(url);
             })
-            .catch(error => console.error(error));
+            .catch(err => alert("Error from RecipeDetails.js: " + err));
     }
 
     return(
@@ -74,7 +68,8 @@ const RecipeDetails = (props) => {
                                 <Ingredients array={ingredients} widget={ingredientsPic}/>
                             </Col>
                             <Col lg={7}>
-                                <Procedure />
+                                <Procedure steps={props.procedure}/>
+                                {console.log(`RecipeDetails` + props.procedure)}
                             </Col>
                         </Row>
                     </Container>

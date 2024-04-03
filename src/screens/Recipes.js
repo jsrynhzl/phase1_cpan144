@@ -21,6 +21,8 @@ const Recipes = () => {
     const [cuisine, setCuisine] = useState([]);
     const [diets, setDiets] = useState([]);
 
+    const [procedure, setProcedure] = useState([]);
+
     const [loading, setLoading] = useState(false);
 
     const getDessert = () => {
@@ -40,7 +42,7 @@ const Recipes = () => {
             return response.json();
         })
         .then(json => previewRecipe(json))
-        .catch(err => alert(err))
+        .catch(err => alert("Error from Recipes.js: " + err))
     }
 
     const previewRecipe = (dessertJson) => {
@@ -83,6 +85,13 @@ const Recipes = () => {
         setCuisine(cuisineArray)
         setDiets(diets)
 
+        let procedure = [];
+        dessertJson.results[0].analyzedInstructions[0].steps.forEach((steps) => {
+            procedure.push(' ' + steps.step.replace(".", ". ").replace(",", ", "))
+        });
+        setProcedure(procedure)
+        console.log(procedure)
+
         setLoading(false)
     }
 
@@ -90,9 +99,9 @@ const Recipes = () => {
         <div>
             <BannerNav/>
             <br /><br />
-            <h4>Sweet selections await!</h4>
-            <h5>Explore our world of recipes ~</h5>
-            <Button variant="primary" onClick={getDessert}>Discover a surprise dessert</Button>
+            <h2>Sweet selections await!</h2><br /><br />
+            <h2>Explore our world of recipes ~</h2><br /><br />
+            <Button variant="primary" onClick={getDessert}>Discover a surprise dessert</Button><br /><br />
             {
                 loading ? (
                     <Spinner animation='border' role='status' variant="primary" >
@@ -132,7 +141,8 @@ const Recipes = () => {
                                     <br />
                                 </Container>
                                 <br />
-                                {id && <RecipeDetails id={id} />}
+                                {id && <RecipeDetails id={id} procedure={procedure} />}
+
                             </div>
                         }
                     </div>
