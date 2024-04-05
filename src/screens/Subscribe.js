@@ -20,18 +20,28 @@ const Subscribe = () => {
         event.preventDefault()
         let hasError = false;
 
-        if (name.trim()) {
-            setNameError("")
-        } else {
-            setNameError("Name cannot be empty")
-            hasError = true;
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        const isValidEmail = email => {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailPattern.test(email);
         }
 
-        if (email.trim()) {
-            setEmailError("")
+        if (!name.trim()) {
+            setNameError("Name cannot be empty")
+            hasError = true;
         } else {
+            setNameError("")
+        }
+
+        if (!email.trim()) {
             setEmailError("Email cannot be empty")
             hasError = true;
+        } else if (!isValidEmail(email)) {
+            setEmailError("Please enter a valid email address");
+            hasError = true;
+        }else {
+            setEmailError("")
         }
 
         if (preferences.length === 0) {
@@ -82,9 +92,12 @@ const Subscribe = () => {
                     {emailError && <span style={{ color: 'red' }}>{emailError}</span>}
                 </div>
 
+                <br/>
                 <div>
+                <div className="preferenceContainer">
                     <label className="preferenceLabel">Select your preferences  : </label>
                     <br/>
+                    
                     <label>
                     <input
                         type="checkbox"
@@ -140,6 +153,8 @@ const Subscribe = () => {
                     <br />
                     {preferencesError && <span style={{ color: 'red' }}>{preferencesError}</span>}
                 </div>
+                </div>
+                
 
                 <button type="submit">Submit</button>
             </form>

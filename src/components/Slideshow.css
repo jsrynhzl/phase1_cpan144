@@ -9,24 +9,23 @@
 }
 
 .slider-container{
-    display: flex;
-    justify-content: center;
+    display: flex; 
+    justify-content: center; 
     /* height: 90vh; */
     margin-bottom: 5%;
 }
 
 .carousel-caption {
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
-    color: black; /* Text color */
-    padding: 20px; /* Padding around the caption */
-    border-radius: 10px; /* Rounded corners */
+    background-color: rgba(65, 145, 151, 0.545); 
+    color: black; 
+    padding: 10px; 
+    border-radius: 10px; 
 }
 
 .carousel-caption h3 {
-    font-size: 24px; /* Font size for the label */
-    font-weight: bold; /* Font weight for the label */
+    font-size: 24px; 
+    font-weight: bold; 
+    color: yellow;
+    /* text-shadow: 8px 8px 10px black; */
 }
 
-.carousel-caption p {
-    font-size: 16px; /* Font size for the description */
-}

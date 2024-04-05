@@ -39,10 +39,9 @@ const Home = () => {
     return (
         <div>
             <BannerNav />
-            <h2>Home</h2>
-            <h3 className='welcomeMessage'>
+            <h2 className='welcomeMessage'>
                 Welcome to the sweet life at BareBakes!
-            </h3>
+            </h2>
             <Slideshow images = {images} />
             <Footer />
         </div>
