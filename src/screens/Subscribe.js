@@ -79,7 +79,7 @@ const Subscribe = () => {
                         }}
                     />
                     <br />
-                    {nameError && <span style={{ color: 'red' }}>{nameError}</span>}
+                    {nameError && <span className="error-message">{nameError}</span>}
                     <br />
 
 
@@ -94,13 +94,12 @@ const Subscribe = () => {
                         }}
                     />
                     <br />
-                    {emailError && <span style={{ color: 'red' }}>{emailError}</span>}
+                    {emailError && <span className="error-message">{emailError}</span>}
                     <br />
 
                             <label>Select your preferences  : </label>
 
                             <div className="choicesContainer">
-                            <label className="choice">
                                 <input
                                     type="checkbox"
                                     value="Cakes"
@@ -114,11 +113,13 @@ const Subscribe = () => {
                                         }
                                     }}
                                 />
-                                Cakes
+                                <label className="choice">
+                            Cakes
                             </label>
+                                
                             <br />
 
-                            <label className="choice">
+                            
                                 <input
                                     type="checkbox"
                                     value="Cookies"
@@ -132,11 +133,12 @@ const Subscribe = () => {
                                         }
                                     }}
                                 />
-                                Cookies
+                                <label className="choice">
+                            Cookies
                             </label>
                             <br />
 
-                            <label className="choice">
+                            
                                 <input
                                     type="checkbox"
                                     value="Pastries"
@@ -150,11 +152,13 @@ const Subscribe = () => {
                                         }
                                     }}
                                 />
-                                Pastries
+                                <label className="choice">
+                            Pastries
                             </label>
                             </div>
                         <br />
-                        {preferencesError && <span style={{ color: 'red' }}>{preferencesError}</span>}
+                        {preferencesError && <span className="error-message">{preferencesError}</span>}
+                        
                         <br />
                     <Button variant="warning" type="submit">Submit</Button>
 

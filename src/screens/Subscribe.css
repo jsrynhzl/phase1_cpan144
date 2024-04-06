@@ -3,8 +3,8 @@
     border-radius: 30px;
     color: #e67a7a;
     width: 70%;
-    margin: 5% auto;
-    padding: 5%;
+    margin: 3% auto;
+    padding: 3% 5%;
     text-align: center; 
     font-size: large;
 }
@@ -35,21 +35,19 @@
     vertical-align: top;
     width: 65%; 
     text-align: left;
-}
+} 
 
-.choice {
-    display: flex;
-    margin-bottom: 12px;
-    cursor: pointer;
-  }
-  
-
-.choice  input[type="checkbox"] {
+input[type="checkbox"] {
     margin-right: 30px;
 }
 
+.choice {
+    cursor: pointer;
+  }
+
 .error-message {
     color: red;
+    text-align: left;
 }
 
 button[type=submit] {
