@@ -20,7 +20,7 @@ const Procedure = (props) => {
                 <Accordion.Item eventKey="0">
                     <Accordion.Header><h3>Procedure</h3></Accordion.Header>
                     <Accordion.Body>
-                        <div>
+                        <div class="text-start">
                             <OverlayTrigger
                                 placement="left-end"
                                 overlay={renderTooltip}>

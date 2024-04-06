@@ -25,7 +25,7 @@ const RecipeDetails = (props) => {
         var acc1_key = "1086348ae7cb452d8af4701cf23fefce"
         var acc2_key = "12f48c335d5a410494f64fead179ab30"
         var acc3_key = "dd02296314b245d9b7c917379ed2aa5a"
-        var apiKey = acc2_key
+        var apiKey = acc1_key
         
         try {
             let apiURL = `https://api.spoonacular.com/recipes/${props.id}/ingredientWidget.json?apiKey=` + apiKey
