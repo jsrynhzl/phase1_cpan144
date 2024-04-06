@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import BannerNav from "../components/BannerNav";
 import Footer from "../components/Footer";
 import './Subscribe.css';
+import Button from 'react-bootstrap/Button';
 
 const Subscribe = () => {
 
@@ -155,7 +156,7 @@ const Subscribe = () => {
                         <br />
                         {preferencesError && <span style={{ color: 'red' }}>{preferencesError}</span>}
                         <br />
-                    <button type="submit">Submit</button>
+                    <Button variant="warning" type="submit">Submit</Button>
 
                 </fieldset>
             </form>
