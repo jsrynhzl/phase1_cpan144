@@ -53,17 +53,6 @@ const RecipeDetails = (props) => {
                 setIngredientsPic(url);
             })
             .catch(err => alert("Error from RecipeDetails.js: " + err));
-
-        // TODO
-        // let ingredientsWidgetURL = `https://api.spoonacular.com/recipes/${props.id}/ingredientWidget?apiKey=` + apiKey + `&measure=metric`
-        // fetch(ingredientsWidgetURL)
-        //     .then(response => {
-        //         setLoading(true)
-        //         console.log(`My response.txt() is = ` + response.text())
-        //         setIngredientsWidget(response.text())
-        //     })
-        //     .catch(err => alert("Error from Recipes.js: " + err))
-        
     }
 
     return(

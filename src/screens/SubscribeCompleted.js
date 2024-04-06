@@ -16,7 +16,7 @@ const SubscribeCompleted = () => {
         <div>
             <BannerNav/>
             <div className="success">
-            <h3>Subscribe Successfully</h3>
+            <h3>Subscribed successfully</h3>
             <h3>Welcome, {name} </h3>
             <button onClick={goToHome}>Visit Home Page</button>
             </div>
