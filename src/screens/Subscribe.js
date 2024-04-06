@@ -63,7 +63,7 @@ const Subscribe = () => {
             <form onSubmit={handleSubmit}>
                 <fieldset className="subscribe-container">
                     <legend>
-                        <h2>Subscribe</h2>
+                        <h2>Subscribe Now</h2>
                     </legend>
 
 
