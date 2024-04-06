@@ -154,6 +154,7 @@ const Subscribe = () => {
                             </div>
                         <br />
                         {preferencesError && <span style={{ color: 'red' }}>{preferencesError}</span>}
+                        <br />
                     <button type="submit">Submit</button>
 
                 </fieldset>

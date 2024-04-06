@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom"
 import BannerNav from "../components/BannerNav";
 import Footer from "../components/Footer";
+import './Subscribe.css';
 
 const SubscribeCompleted = () => {
 
@@ -14,9 +15,11 @@ const SubscribeCompleted = () => {
     return (
         <div>
             <BannerNav/>
-            <p class="success">Subscribe Successfully</p>
-            <p class="success">Welcome, {name} </p>
+            <div className="success">
+            <h3>Subscribe Successfully</h3>
+            <h3>Welcome, {name} </h3>
             <button onClick={goToHome}>Visit Home Page</button>
+            </div>
             <Footer/>
         </div>
     )

@@ -53,7 +53,7 @@
     color: red;
 }
 
-button[type=submit] {
+button, button[type=submit] {
     border-color: #e67a7a;
     background-color: #e67a7a;
     color: aliceblue;
@@ -63,4 +63,10 @@ button[type=submit] {
     height: 30px;
     border-radius: 30px;
     margin-top: 30px;
+}
+
+.success{
+    margin-top: 10%;
+    color: #e67a7a;
+    height: 45vh;
 }
