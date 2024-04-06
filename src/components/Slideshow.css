@@ -11,7 +11,6 @@
 .slider-container{
     display: flex; 
     justify-content: center; 
-    /* height: 90vh; */
     margin-bottom: 5%;
 }
 
@@ -26,6 +25,5 @@
     font-size: 24px; 
     font-weight: bold; 
     color: yellow;
-    /* text-shadow: 8px 8px 10px black; */
 }
 

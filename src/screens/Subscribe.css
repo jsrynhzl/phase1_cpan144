@@ -24,7 +24,6 @@
 .subscribe-container input[type="text"] {
     display: inline-block; 
     width: 65%; 
-    /* padding: 8px; */
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -53,7 +52,7 @@
     color: red;
 }
 
-button, button[type=submit] {
+.goToHome, button[type=submit] {
     border-color: #e67a7a;
     background-color: #e67a7a;
     color: aliceblue;
