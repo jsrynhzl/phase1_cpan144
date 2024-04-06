@@ -1,0 +1,10 @@
+.welcomeMessage{
+    border: 5px solid #9ddcdc;
+    border-style: double;
+    border-radius: 20px;
+    padding: 3% 4%;
+    color: #e67a7a;
+    font-size: medium;
+    margin: 5% auto;
+    width: 80%;
+}

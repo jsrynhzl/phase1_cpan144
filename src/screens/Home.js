@@ -1,3 +1,4 @@
+import './Home.css';
 import BannerNav from '../components/BannerNav'
 import Footer from '../components/Footer'
 import Slideshow from '../components/Slideshow';
@@ -11,7 +12,7 @@ import MexicanImg from '../components/CarouselImage/Mexican.jpg';
 const Home = () => {
     const images = [
         {
-            url:  AmericanImg,
+            url: AmericanImg,
             label: 'American',
         },
         {
@@ -31,7 +32,7 @@ const Home = () => {
             label: 'Japanese',
         },
         {
-            url: MexicanImg ,
+            url: MexicanImg,
             label: 'Mexican',
         }
     ];
@@ -39,10 +40,12 @@ const Home = () => {
     return (
         <div>
             <BannerNav />
-            <h2 className='welcomeMessage'>
-                Welcome to the sweet life at BareBakes!
-            </h2>
-            <Slideshow images = {images} />
+            <p className='welcomeMessage'>
+                Welcome to Bare Bakes – your go-to source for irresistible baking recipes! From decadent cakes to scrumptious 
+                cookies, we've got everything you need to satisfy your sweet tooth. Explore our collection of recipes and 
+                indulge in the magic of baking with us!
+            </p>
+            <Slideshow images={images} />
             <Footer />
         </div>
     );

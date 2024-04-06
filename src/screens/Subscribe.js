@@ -40,7 +40,7 @@ const Subscribe = () => {
         } else if (!isValidEmail(email)) {
             setEmailError("Please enter a valid email address");
             hasError = true;
-        }else {
+        } else {
             setEmailError("")
         }
 
@@ -58,11 +58,15 @@ const Subscribe = () => {
 
     return (
         <div >
-            <BannerNav/>
-            
-            <form onSubmit={handleSubmit} className="subscribe-container">
-                <div>
-                <h2>Subscribe</h2>
+            <BannerNav />
+
+            <form onSubmit={handleSubmit}>
+                <fieldset className="subscribe-container">
+                    <legend>
+                        <h2>Subscribe</h2>
+                    </legend>
+
+
                     <label>Name : </label>
                     <input
                         type="text"
@@ -75,9 +79,9 @@ const Subscribe = () => {
                     />
                     <br />
                     {nameError && <span style={{ color: 'red' }}>{nameError}</span>}
-                </div>
+                    <br />
 
-                <div>
+
                     <label>Email address: </label>
                     <input
                         type="text"
@@ -90,75 +94,71 @@ const Subscribe = () => {
                     />
                     <br />
                     {emailError && <span style={{ color: 'red' }}>{emailError}</span>}
-                </div>
-
-                <br/>
-                <div>
-                <div className="preferenceContainer">
-                    <label className="preferenceLabel">Select your preferences  : </label>
-                    <br/>
-                    
-                    <label>
-                    <input
-                        type="checkbox"
-                        value="Cakes"
-                        checked={preferences.includes('Cakes')}
-                        onChange={(event) => {
-                            const { checked, value } = event.target;
-                            if (checked) {
-                                setPreferences([...preferences, value]);
-                            } else {
-                                setPreferences(preferences.filter((preferences) => preferences !== value));
-                            }
-                        }}
-                    />
-                    Cakes
-                    </label> 
                     <br />
 
-                    <label>
-                    <input
-                        type="checkbox"
-                        value="Cookies"
-                        checked={preferences.includes('Cookies')}
-                        onChange={(event) => {
-                            const { checked, value } = event.target;
-                            if (checked) {
-                                setPreferences([...preferences, value]);
-                            } else {
-                                setPreferences(preferences.filter((preferences) => preferences !== value));
-                            }
-                        }}
-                    />
-                    Cookies
-                    </label> 
-                    <br />
+                            <label>Select your preferences  : </label>
 
-                    <label>
-                    <input
-                        type="checkbox"
-                        value="Pastries"
-                        checked={preferences.includes('Pastries')}
-                        onChange={(event) => {
-                            const { checked, value } = event.target;
-                            if (checked) {
-                                setPreferences([...preferences, value]);
-                            } else {
-                                setPreferences(preferences.filter((preferences) => preferences !== value));
-                            }
-                        }}
-                    />
-                    Pastries
-                    </label> 
-                    <br />
-                    {preferencesError && <span style={{ color: 'red' }}>{preferencesError}</span>}
-                </div>
-                </div>
-                
+                            <div className="choicesContainer">
+                            <label className="choice">
+                                <input
+                                    type="checkbox"
+                                    value="Cakes"
+                                    checked={preferences.includes('Cakes')}
+                                    onChange={(event) => {
+                                        const { checked, value } = event.target;
+                                        if (checked) {
+                                            setPreferences([...preferences, value]);
+                                        } else {
+                                            setPreferences(preferences.filter((preferences) => preferences !== value));
+                                        }
+                                    }}
+                                />
+                                Cakes
+                            </label>
+                            <br />
 
-                <button type="submit">Submit</button>
+                            <label className="choice">
+                                <input
+                                    type="checkbox"
+                                    value="Cookies"
+                                    checked={preferences.includes('Cookies')}
+                                    onChange={(event) => {
+                                        const { checked, value } = event.target;
+                                        if (checked) {
+                                            setPreferences([...preferences, value]);
+                                        } else {
+                                            setPreferences(preferences.filter((preferences) => preferences !== value));
+                                        }
+                                    }}
+                                />
+                                Cookies
+                            </label>
+                            <br />
+
+                            <label className="choice">
+                                <input
+                                    type="checkbox"
+                                    value="Pastries"
+                                    checked={preferences.includes('Pastries')}
+                                    onChange={(event) => {
+                                        const { checked, value } = event.target;
+                                        if (checked) {
+                                            setPreferences([...preferences, value]);
+                                        } else {
+                                            setPreferences(preferences.filter((preferences) => preferences !== value));
+                                        }
+                                    }}
+                                />
+                                Pastries
+                            </label>
+                            </div>
+                        <br />
+                        {preferencesError && <span style={{ color: 'red' }}>{preferencesError}</span>}
+                    <button type="submit">Submit</button>
+
+                </fieldset>
             </form>
-            <Footer/>
+            <Footer />
         </div>
     );
 }
