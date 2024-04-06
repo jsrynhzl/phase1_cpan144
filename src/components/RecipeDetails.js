@@ -12,8 +12,9 @@ import Procedure from './Procedure';
 const RecipeDetails = (props) => {
     
     const [ingredients, setIngredients] = useState([]);
-    const [ingredientsPic, setIngredientsPic] = useState([]);
-    const [ingredientsWidget, setIngredientsWidget] = useState();
+    const [ingredientsPhoto, setIngredientsPhoto] = useState([]);
+    const [equipmentPhoto, setEquipmentPhoto] = useState([]);
+
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -44,13 +45,21 @@ const RecipeDetails = (props) => {
             setLoading(false)
         }
 
-        let ingredientPicURL = `https://api.spoonacular.com/recipes/${props.id}/ingredientWidget.png?apiKey=` + apiKey + `&measure=metric`
-        
-        fetch(ingredientPicURL)
+        let ingredientPhotoURL = `https://api.spoonacular.com/recipes/${props.id}/ingredientWidget.png?apiKey=` + apiKey + `&measure=metric`
+        fetch(ingredientPhotoURL)
             .then(response => response.blob())
             .then(blob => {
                 const url = URL.createObjectURL(blob);
-                setIngredientsPic(url);
+                setIngredientsPhoto(url);
+            })
+            .catch(err => alert("Error from RecipeDetails.js: " + err));
+
+        let equipmentPhotoURL = `https://api.spoonacular.com/recipes/${props.id}/equipmentWidget.png?apiKey=` + apiKey
+        fetch(equipmentPhotoURL)
+            .then(response => response.blob())
+            .then(blob => {
+                const url = URL.createObjectURL(blob);
+                setEquipmentPhoto(url);
             })
             .catch(err => alert("Error from RecipeDetails.js: " + err));
     }
@@ -66,13 +75,12 @@ const RecipeDetails = (props) => {
                     <Container>
                         <Row>
                             <Col lg={5}>
-                                <Ingredients array={ingredients} photo={ingredientsPic}/>
+                                <Ingredients array={ingredients} photo={ingredientsPhoto}/>
                             </Col>
                             <Col lg={7}>
-                                <Procedure steps={props.procedure}/>
+                                <Procedure steps={props.procedure} photo={equipmentPhoto}/>
                             </Col>
                         </Row>
-                            {ingredientsWidget && <div dangerouslySetInnerHTML={{ __html: ingredientsWidget }}></div>}
                     </Container>
                 )
             }

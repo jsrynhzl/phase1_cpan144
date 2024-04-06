@@ -1,8 +1,18 @@
 import Accordion from 'react-bootstrap/Accordion';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Image from 'react-bootstrap/Image';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 const Procedure = (props) => {
     let procedureArray = props.steps;
+    let equipmentPhoto = props.photo;
+
+    const renderTooltip = (
+        <Tooltip style={{ border: 'none', boxShadow: 'none', width: '300px'}}>
+            <Image src={equipmentPhoto} width="400" length="400" rounded />
+        </Tooltip>
+    );
 
     return (
         <div>
@@ -11,15 +21,19 @@ const Procedure = (props) => {
                     <Accordion.Header><h3>Procedure</h3></Accordion.Header>
                     <Accordion.Body>
                         <div>
-                            <ListGroup as="ol" numbered>
-                                {
-                                    procedureArray.map(step => (
-                                        <ListGroup.Item as="li" style={{ justifyContent: 'left' }}>
-                                            {step}
-                                        </ListGroup.Item>
-                                    ))
-                                }
-                            </ListGroup>
+                            <OverlayTrigger
+                                placement="left-end"
+                                overlay={renderTooltip}>
+                                <ListGroup as="ol" numbered>
+                                    {
+                                        procedureArray.map(step => (
+                                            <ListGroup.Item as="li" style={{ justifyContent: 'left' }}>
+                                                {step}
+                                            </ListGroup.Item>
+                                        ))
+                                    }
+                                </ListGroup>
+                            </OverlayTrigger>
                         </div>
                     </Accordion.Body>
                 </Accordion.Item>

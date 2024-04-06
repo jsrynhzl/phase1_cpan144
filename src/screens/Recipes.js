@@ -101,7 +101,7 @@ const Recipes = () => {
             <br /><br />
             <h2>Sweet selections await!</h2><br /><br />
             <h2>Explore our world of recipes ~</h2><br /><br />
-            <Button variant="primary" style={{width: '20%'}} onClick={getDessert}>Discover a surprise dessert</Button><br /><br />
+            <Button variant="primary" onClick={getDessert}>Discover a surprise dessert</Button><br /><br />
             {
                 loading ? (
                     <Spinner animation='border' role='status' variant="primary" >
@@ -122,7 +122,7 @@ const Recipes = () => {
                                         <Col fluid="md">
                                             <br />
                                             {name && <h4>{name}</h4>}
-                                            {/* {id && <h4>{id}</h4>} */}
+                                            {id && <p>Recipe # {id}</p>}
                                             {sourceUrl && <span style={{ color: 'blue' }}><a href={sourceUrl}>Link to source</a></span>}
                                             <br /><br />
                                             {prepTime && <span>Preparation time: {prepTime}</span>}
