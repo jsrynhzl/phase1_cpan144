@@ -9,7 +9,7 @@ const Procedure = (props) => {
     let equipmentPhoto = props.photo;
 
     const renderTooltip = (
-        <Tooltip style={{ border: 'none', boxShadow: 'none', width: '300px'}}>
+        <Tooltip style={{ width: '400px' }}>
             <Image src={equipmentPhoto} width="400" length="400" rounded />
         </Tooltip>
     );
