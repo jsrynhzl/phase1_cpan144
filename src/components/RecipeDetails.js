@@ -13,6 +13,7 @@ const RecipeDetails = (props) => {
     
     const [ingredients, setIngredients] = useState([]);
     const [ingredientsPic, setIngredientsPic] = useState([]);
+    const [ingredientsWidget, setIngredientsWidget] = useState();
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -52,6 +53,17 @@ const RecipeDetails = (props) => {
                 setIngredientsPic(url);
             })
             .catch(err => alert("Error from RecipeDetails.js: " + err));
+
+        // TODO
+        // let ingredientsWidgetURL = `https://api.spoonacular.com/recipes/${props.id}/ingredientWidget?apiKey=` + apiKey + `&measure=metric`
+        // fetch(ingredientsWidgetURL)
+        //     .then(response => {
+        //         setLoading(true)
+        //         console.log(`My response.txt() is = ` + response.text())
+        //         setIngredientsWidget(response.text())
+        //     })
+        //     .catch(err => alert("Error from Recipes.js: " + err))
+        
     }
 
     return(
@@ -65,13 +77,13 @@ const RecipeDetails = (props) => {
                     <Container>
                         <Row>
                             <Col lg={5}>
-                                <Ingredients array={ingredients} widget={ingredientsPic}/>
+                                <Ingredients array={ingredients} photo={ingredientsPic}/>
                             </Col>
                             <Col lg={7}>
                                 <Procedure steps={props.procedure}/>
-                                {console.log(`RecipeDetails` + props.procedure)}
                             </Col>
                         </Row>
+                            {ingredientsWidget && <div dangerouslySetInnerHTML={{ __html: ingredientsWidget }}></div>}
                     </Container>
                 )
             }

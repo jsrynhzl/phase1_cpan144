@@ -87,10 +87,10 @@ const Recipes = () => {
 
         let procedure = [];
         dessertJson.results[0].analyzedInstructions[0].steps.forEach((steps) => {
-            procedure.push(' ' + steps.step.replace(".", ". ").replace(",", ", "))
+            let editedString = steps.step.replace(".", ". ").replace(",", ", ")
+            procedure.push(editedString)
         });
         setProcedure(procedure)
-        console.log(procedure)
 
         setLoading(false)
     }
@@ -127,7 +127,7 @@ const Recipes = () => {
                                             <br /><br />
                                             {prepTime && <span>Preparation time: {prepTime}</span>}
                                             <br /><br />
-                                            {servings && <span>Serves: {servings} people</span>}
+                                            {servings && <span>Servings: {servings}</span>}
                                             <br /><br />
                                             {cuisine.length > 0 && <span>Cuisine: {cuisine.join(" / ")}</span>}
                                             <br /><br />

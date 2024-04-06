@@ -6,11 +6,11 @@ import Tooltip from 'react-bootstrap/Tooltip';
 
 const Ingredients = (props) => {
     let ingredientsArray = props.array
-    let ingredientsWidget = props.widget
+    let ingredientsPhoto = props.photo
 
     const renderTooltip = (
         <Tooltip style={{ border: 'none', boxShadow: 'none' }}>
-            <Image src={ingredientsWidget} width="400" length="400" rounded />
+            <Image src={ingredientsPhoto} width="400" length="400" rounded />
         </Tooltip>
     );
 
@@ -35,9 +35,7 @@ const Ingredients = (props) => {
                                                 </h5>
                                             </ListGroup.Item>
                                         ))
-                                        
                                     }
-                                    {/* <Image src={ingredientsWidget} width="450" length="450" rounded /> */}
                                 </ListGroup>
                             </OverlayTrigger>
                         </div>
