@@ -101,6 +101,11 @@ const Recipes = () => {
             <br /><br /><br /><br />
             <h2>Sweet selections await!</h2><br /><br />
             <h2>Explore our world of recipes ~</h2><br /><br />
+            <h3>
+                Elevate your dessert game and be challenged one delectable bake at a time,
+                with our oven-inspired delights!
+            </h3>
+            <br /><br />
             <Button variant="primary" onClick={getDessert}>Discover a surprise dessert</Button><br /><br /><br /><br />
             {
                 loading ? (

@@ -17,9 +17,9 @@ const Footer = () => {
                             <span>
                                 <h4>BARE <Image src={icon} alt="A logo of Bare Bakes" width="30" height="30" rounded /> BAKES</h4>
                             </span>
-                            <p>
-                                Elevate your dessert game and be challenged one delectable bake at a time, with our oven-inspired delights!
-                            </p>
+                            <br/>
+                            <p>Copyright &copy; Tsz Wai Cheung & Jesseryn Coronado</p>
+                            <p>N01603365 / N01584373</p>
                         </Col>
                         <Col>
                             <h5>Quick links</h5>
@@ -35,7 +35,6 @@ const Footer = () => {
                             <SocialIcon url="https://youtube.com" />
                             <SocialIcon url="https://x.com" />
                             <br /><br />
-                            <p>Copyright &copy; TszWai and Jesse</p>
                             <p>CPAN 144 - Section 8288 / 0NA</p>
                         </Col>
                     </Row>
